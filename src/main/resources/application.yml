@@ -18,3 +18,23 @@ spring:
       hibernate:
         temp:
           use_jdbc_metadata_defaults: false
+
+google:
+  client:
+    clientId: 46833416323-ivv3vmtcjva2l9tan451aiukm8b7uibb.apps.googleusercontent.com
+    clientSecret: ${GOOGLE_SECRET_KEY}
+    accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+    clientAuthenticationScheme: form
+    scope:
+      - openid
+      - email
+      - profile
+  resource:
+    userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
+    preferTokenInfo: true
+
+jwt:
+  # 7 days
+  expiration: 604800
+  secret: ${JWT_SECRET}
