@@ -1,6 +1,6 @@
 package com.invoicescanner.controller;
 
-import com.invoicescanner.config.path.User;
+import com.invoicescanner.config.path.UserPaths;
 import com.invoicescanner.model.entity.UserEntity;
 import com.invoicescanner.security.JwtTokenUtils;
 import com.invoicescanner.service.UserService;
@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(User.CONTROLLER)
+@RequestMapping(UserPaths.CONTROLLER)
 @RequiredArgsConstructor
 public class UserController {
 
   private final UserService userService;
   private final JwtTokenUtils tokenUtils;
 
-  @RequestMapping(method = RequestMethod.GET, value = User.CURRENT)
+  @RequestMapping(method = RequestMethod.GET, value = UserPaths.CURRENT)
   public ResponseEntity<UserEntity> getCurrentUser(@RequestHeader HttpHeaders headers) {
     String token = headers.get("Authorization").get(0).substring(7);
     String userId = tokenUtils.getUserIdFromToken(token);

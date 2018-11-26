@@ -1,6 +1,6 @@
 package com.invoicescanner.config;
 
-import com.invoicescanner.config.path.User;
+import com.invoicescanner.config.path.UserPaths;
 import com.invoicescanner.security.AuthAccessDeniedHandler;
 import com.invoicescanner.security.AuthEntryPoint;
 import com.invoicescanner.security.JwtAuthenticationFilter;
@@ -43,7 +43,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
       .and()
         .authorizeRequests()
           .antMatchers(
-            User.CONTROLLER + User.CURRENT
+            UserPaths.CONTROLLER + UserPaths.CURRENT
           )
             .authenticated()
       .and()

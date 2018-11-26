@@ -25,6 +25,7 @@ public class UserService {
     UserEntity databaseUser = userRepository.findByGoogleId(googleDetails.getId());
     if (Objects.nonNull(databaseUser)) {
       newUser.setId(databaseUser.getId());
+      newUser.setUserId(this.getUniqueId());
     }
     newUser.setGoogleId(googleDetails.getId());
     return userRepository.save(newUser);
@@ -34,4 +35,13 @@ public class UserService {
     return userRepository.findByUserId(userId);
   }
 
+  private String getUniqueId() {
+    boolean isUniqueId = false;
+    String randomId = null;
+    while (!isUniqueId) {
+      randomId = String.valueOf(UUID.randomUUID());
+      isUniqueId = Objects.isNull(userRepository.findByUserId(randomId));
+    }
+    return randomId;
+  }
 }

@@ -1,6 +1,6 @@
 package com.invoicescanner.config;
 
-import com.invoicescanner.config.path.Authorization;
+import com.invoicescanner.config.path.AuthorizationPaths;
 import com.invoicescanner.security.ClientResources;
 import com.invoicescanner.security.SocialAuthenticationFilter;
 import com.invoicescanner.security.SocialAuthenticationProvider;
@@ -30,7 +30,7 @@ import java.util.List;
 @Order(1)
 @RequiredArgsConstructor
 public class SocialWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-  private static final String SOCIAL_AUTHORIZATION_PATH = Authorization.CONTROLLER + Authorization.GOOGLE_LOGIN;
+  private static final String SOCIAL_AUTHORIZATION_PATH = AuthorizationPaths.CONTROLLER + AuthorizationPaths.GOOGLE_LOGIN;
 
   private final OAuth2ClientContext oauth2ClientContext;
 

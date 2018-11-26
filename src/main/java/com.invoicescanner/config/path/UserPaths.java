@@ -1,6 +1,6 @@
 package com.invoicescanner.config.path;
 
-public class User {
+public class UserPaths {
   public static final String CONTROLLER = "/users";
   public static final String CURRENT = "/current";
 }

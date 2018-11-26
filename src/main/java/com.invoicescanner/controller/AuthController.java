@@ -1,6 +1,6 @@
 package com.invoicescanner.controller;
 
-import com.invoicescanner.config.path.Authorization;
+import com.invoicescanner.config.path.AuthorizationPaths;
 import com.invoicescanner.model.entity.UserEntity;
 import com.invoicescanner.model.wrapper.GoogleProfileWrapper;
 import com.invoicescanner.security.JwtTokenUtils;
@@ -19,7 +19,7 @@ import java.security.Principal;
 import java.util.Map;
 
 @RestController
-@RequestMapping(Authorization.CONTROLLER)
+@RequestMapping(AuthorizationPaths.CONTROLLER)
 @RequiredArgsConstructor
 public class AuthController {
 
@@ -27,7 +27,7 @@ public class AuthController {
   private final CustomObjectMapper objectMapper;
   private final JwtTokenUtils tokenUtils;
 
-  @RequestMapping(method = RequestMethod.POST, value = Authorization.GOOGLE_LOGIN)
+  @RequestMapping(method = RequestMethod.POST, value = AuthorizationPaths.GOOGLE_LOGIN)
   public ResponseEntity<String> login(Principal principal) {
     Map googleDetails = (Map)((OAuth2Authentication)principal).getUserAuthentication().getDetails();
     GoogleProfileWrapper googleProfileWrapper = objectMapper.convert(googleDetails, GoogleProfileWrapper.class);
