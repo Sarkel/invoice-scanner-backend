@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<ruleset name="ExampleRuleset"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+
+    <description>
+        This ruleset turns off some rules. If you want to turn off more ones:
+        see:
+        <a href="http://pmd.sourceforge.net/pmd-4.3.0/rules/index.html"></a>
+    </description>
+
+    <rule ref="rulesets/java/basic.xml"></rule>
+    <rule ref="rulesets/java/braces.xml"></rule>
+    <rule ref="rulesets/java/android.xml"></rule>
+    <rule ref="rulesets/java/naming.xml">
+        <exclude name="AbstractNaming"/>
+        <exclude name="ShortVariable"/>
+        <exclude name="LongVariable"/>
+        <exclude name="MethodNamingConventions"/>
+        <exclude name="AvoidFieldNameMatchingMethodName"/>
+    </rule>
+    <rule ref="rulesets/java/clone.xml"></rule>
+    <rule ref="rulesets/java/codesize.xml">
+        <exclude name="TooManyMethods"/>
+    </rule>
+    <rule ref="rulesets/java/controversial.xml">
+        <exclude name="AtLeastOneConstructor"/>
+        <exclude name="DataflowAnomalyAnalysis"/>
+        <exclude name="OnlyOneReturn"/>
+        <exclude name="UseConcurrentHashMap"/>
+        <exclude name="CallSuperInConstructor"/>
+    </rule>
+    <rule ref="rulesets/java/design.xml">
+        <exclude name="UseUtilityClass"/>
+        <exclude name="UncommentedEmptyConstructor"/>
+        <exclude name="AbstractClassWithoutAbstractMethod"/>
+        <exclude name="SingularField"/>
+        <exclude name="ImmutableField"/>
+        <exclude name="ConstructorCallsOverridableMethod"/>
+    </rule>
+    <!--Rules allows lombok annotation to suppress pmd's false positives-->
+    <rule ref="rulesets/java/design.xml/ImmutableField">
+        <properties>
+            <property name="violationSuppressXPath" value="//ClassOrInterfaceDeclaration/../Annotation/MarkerAnnotation/Name[(@Image='Data') or (@Image='Getter') or (@Image='@Setter')]" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/java/design.xml/SingularField">
+        <properties>
+            <property name="violationSuppressXPath" value="//ClassOrInterfaceDeclaration/../Annotation/MarkerAnnotation/Name[(@Image='Data') or (@Image='Getter') or (@Image='@Setter')]" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/java/finalizers.xml"></rule>
+    <rule ref="rulesets/java/imports.xml">
+        <exclude name="TooManyStaticImports"/>
+    </rule>
+    <rule ref="rulesets/java/j2ee.xml">
+        <exclude name="DoNotUseThreads"/>
+    </rule>
+    <rule ref="rulesets/java/javabeans.xml">
+        <exclude name="BeanMembersShouldSerialize"/>
+    </rule>
+    <rule ref="rulesets/java/junit.xml">
+        <exclude name="JUnitTestContainsTooManyAsserts"/>
+    </rule>
+    <rule ref="rulesets/java/logging-jakarta-commons.xml"></rule>
+    <rule ref="rulesets/java/logging-java.xml"></rule>
+    <rule ref="rulesets/java/migrating.xml"></rule>
+    <rule ref="rulesets/java/optimizations.xml">
+        <exclude name="LocalVariableCouldBeFinal"/>
+        <exclude name="AvoidInstantiatingObjectsInLoops"/>
+        <exclude name="MethodArgumentCouldBeFinal"/>
+    </rule>
+    <rule ref="rulesets/java/strictexception.xml">
+        <exclude name="SignatureDeclareThrowsException"/>
+    </rule>
+    <rule ref="rulesets/java/strings.xml">
+        <exclude name="AvoidDuplicateLiterals"/>
+    </rule>
+    <rule ref="rulesets/java/sunsecure.xml"></rule>
+    <rule ref="rulesets/java/typeresolution.xml">
+        <exclude name="SignatureDeclareThrowsException"/>
+    </rule>
+    <rule ref="rulesets/java/unusedcode.xml"></rule>
+</ruleset>

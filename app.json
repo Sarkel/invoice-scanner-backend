@@ -1,0 +1,25 @@
+{
+  "name": "invoice-scanner",
+  "image": "heroku/java",
+  "description": "",
+  "keywords": [
+    "Java", "Spring", "PostgreSQL", "OCR"
+  ],
+  "repository": "https://github.com/Sarkel/invoice-scanner-backend",
+  "scripts": {},
+  "env": {
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/gradle"
+    }
+  ]
+}
