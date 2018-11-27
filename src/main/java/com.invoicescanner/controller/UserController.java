@@ -1,7 +1,7 @@
 package com.invoicescanner.controller;
 
 import com.invoicescanner.config.path.UserPaths;
-import com.invoicescanner.model.entity.UserEntity;
+import com.invoicescanner.model.wrapper.response.UserResponse;
 import com.invoicescanner.security.JwtTokenUtils;
 import com.invoicescanner.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -24,11 +24,10 @@ public class UserController {
   private final JwtTokenUtils tokenUtils;
 
   @RequestMapping(method = RequestMethod.GET, value = UserPaths.CURRENT)
-  public ResponseEntity<UserEntity> getCurrentUser(@RequestHeader HttpHeaders headers) {
-    String token = headers.get("Authorization").get(0).substring(7);
-    String userId = tokenUtils.getUserIdFromToken(token);
+  public ResponseEntity<UserResponse> getCurrentUser(@RequestHeader HttpHeaders headers) {
+    String userId = tokenUtils.getUserIdFromHeaders(headers);
     return Optional.ofNullable(userService.getUserEntityById(userId))
-      .map(user  -> new ResponseEntity<>(user, HttpStatus.OK))
+      .map(user -> new ResponseEntity<>(new UserResponse(user), HttpStatus.OK))
       .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
   }
 

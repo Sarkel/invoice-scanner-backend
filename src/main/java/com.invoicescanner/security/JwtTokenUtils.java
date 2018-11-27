@@ -2,6 +2,7 @@ package com.invoicescanner.security;
 
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -35,8 +36,17 @@ public class JwtTokenUtils {
       .compact();
   }
 
+  public String getUserIdFromHeaders(HttpHeaders headers) {
+    String token = this.getTokenFromHeaders(headers);
+    return this.getUserIdFromToken(token);
+  }
+
   public String getUserIdFromToken(String token) {
     return getClaimFromToken(token, Claims::getSubject);
+  }
+
+  public String getTokenFromHeaders(HttpHeaders headers) {
+    return headers.get("Authorization").get(0).substring(7);
   }
 
   private Date getExpirationDateFromToken(String token) {

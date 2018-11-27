@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="com.invoicescanner.invoice-scanner.main" target="1.8" />
+      <module name="com.invoicescanner.invoice-scanner.test" target="1.8" />
       <module name="invoice-scanner_main" target="1.8" />
       <module name="invoice-scanner_test" target="1.8" />
     </bytecodeTargetLevel>
