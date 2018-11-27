@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/invoice-scanner.iml" filepath="$PROJECT_DIR$/.idea/modules/invoice-scanner.iml" />
-      <module fileurl="file://$PROJECT_DIR$/invoice-scanner-backend.iml" filepath="$PROJECT_DIR$/invoice-scanner-backend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/invoice-scanner_main.iml" filepath="$PROJECT_DIR$/.idea/modules/invoice-scanner_main.iml" group="invoice-scanner" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/invoice-scanner_test.iml" filepath="$PROJECT_DIR$/.idea/modules/invoice-scanner_test.iml" group="invoice-scanner" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.invoicescanner.invoice-scanner.iml" filepath="$PROJECT_DIR$/.idea/modules/com.invoicescanner.invoice-scanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.invoicescanner.invoice-scanner.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.invoicescanner.invoice-scanner.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.invoicescanner.invoice-scanner.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.invoicescanner.invoice-scanner.test.iml" />
     </modules>
   </component>
 </project>
